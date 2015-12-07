@@ -1,0 +1,15 @@
+include ../components/buttons/button.jade
+
+doctype html
+html(lang="en")
+	head
+		title= pageTitle
+		body
+			div.wrapper
+				.content hi!
+				h1 Hello!!!
+				+btn({
+					type: "confirm",
+					color: "red",
+					size: "big"
+				})

@@ -1,0 +1,7 @@
+mixin btn(arr)
+	- var name = "btn";
+	
+	- var color = arr.color ? "btn--"+arr.color :"";
+	- var size = arr.size ? " btn--"+arr.size : "";
+
+	button(class=name + color + size)= arr.type
