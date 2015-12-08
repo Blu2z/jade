@@ -1,0 +1,9 @@
+mixin b_(tag)
+-var classNames = attributes.class,
+-    blockName = classNames.split(' ', 1);
+-tag = tag || 'div';
+-attributes.class = classNames.replace(/\s_/g, ' ' + blockName + '_');
+#{tag}(attributes): blockName
+
+// Хэлперы
+-var span = 'span';
