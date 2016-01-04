@@ -1,6 +1,19 @@
 // bower:scss
 // endbower
 
+@import "mixins";
+@import "icons";
+
+/*comonents*/
+@import "../components/buttons/buttons";
+// @import "../components/header/header";
+// @import "../components/slider/slider-head";
+// @import "../components/slider/slider";
+// @import "../components/content/content";
+// @import "../components/contact/contact";
+// @import "../components/gallery/gallery";
+// @import "../components/footer/footer";
+
 body {
   background: #fafafa;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -28,4 +41,8 @@ body {
   background: #ccc;
   color: #000;
   padding: 0.2em 0;
+}
+
+.main-block {
+  background-color: red;
 }

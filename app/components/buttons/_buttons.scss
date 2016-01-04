@@ -1,0 +1,16 @@
+.btn {
+	&__logo {
+		color: #fff;
+		font-size: 26px;
+		text-align: center;
+		display: inline-block;
+		width: 50px;
+		height: 60px;
+		&:not(:last-child) {
+			margin-right: -4px;
+		}
+		&--home {
+			background-color: #2CA6D4;
+		}
+	}
+}

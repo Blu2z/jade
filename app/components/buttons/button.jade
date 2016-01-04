@@ -1,13 +1,17 @@
 mixin btn(arr)
 	.wrap
 		- var name = "btn";
-		- var color = arr.color ? " btn--"+arr.color :"";
-		- var size = arr.size ? " btn--"+arr.size : "";
-		button(class=name + color + size)(
+		- var styles = arr.styles || "";
+		- var color = arr.color || "";
+		- var size = arr.size || "";
+		- var translate = arr.translate || "";
+		button(class=name + ' ' + color + ' ' + size + ' ' + styles)(
 			type=arr.types 
 			ng-app=arr.ngAng 
 			translate=arr.translate
-		)= arr.type
-		- var tooltip = arr.tooltip ? arr.tooltip : false;
+		)= arr.type || ""
+			if type
+				i.icon-arrow
+		- var tooltip = arr.tooltip || false;
 		if tooltip 
-			.tooltip= tooltip
+			.tooltip(translate)= tooltip

@@ -1,27 +1,26 @@
-include ../components/mixins.jade
-
-doctype html
-html(lang="en")
-	head
-		title= pageTitle
-		body
-			+btn({
-				type: "confirm",
-				color: "red",
-				size: "big",
-				translate: "translate",
-				ngAng: "Power",
-				tooltip: "Нажмите, чтобы отправить",
-				types: "submit"
-			})
-			.wrap
-				button.btn.btn--red.btn--big(translate, ng-app="power", type='submit') confirm
-				.tooltip Нажмите, чтобы отправить
-			+b.menu
-				+e.item
-					+e.item--red.--resize
-			.wrap
-				//- Declaration
-				- var tag = "span "
-				#{tag}.row
+extends ../components/head/head.jade
+block content
+	+btn({
+		styles: "btn__logo--home",
+		txt: "confirm",
+		color: "red",
+		size: "big",
+		translate: "translate",
+		ngAng: "Power",
+		tooltip: "Нажмите, чтобы отправить",
+		types: "submit"
+	})
+	.wrap
+		button.btn.btn--red.btn--big(translate, ng-app="power", type='submit') confirm
+		.tooltip Нажмите, чтобы отправить
+	+b.menu
+		+e.item
+			+e.item--red.--resize
+	.wrap
+		//- Declaration
+		- var tag = "span "
+		#{tag}.row
+	i.icon-simply-logo
+	.main-block
+		p kwdjqwujfijfjwefojewofijewoifjiwj
 

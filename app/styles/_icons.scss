@@ -1,0 +1,61 @@
+@font-face {
+	font-family: "Simplyfont";
+	src: url('../../fonts/Simplyfont.eot');
+	src: url('../../fonts/Simplyfont.eot?#iefix') format('eot'),
+		url('../../fonts/Simplyfont.woff') format('woff'),
+		url('../../fonts/Simplyfont.ttf') format('truetype'),
+		url('../../fonts/Simplyfont.svg#Simplyfont') format('svg');
+}
+
+@mixin icon-styles {
+	font-family: "Simplyfont";
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	// speak: none; // only necessary if not using the private unicode range (firstGlyph option)
+	text-decoration: none;
+	text-transform: none;
+}
+
+%icon {
+	@include icon-styles;
+}
+
+@function icon-char($filename) {
+	$char: "";
+
+	@if $filename == arrow {
+		$char: "\E001";
+	}
+	@if $filename == home {
+		$char: "\E002";
+	}
+	@if $filename == simply-logo {
+		$char: "\E003";
+	}
+
+	@return $char;
+}
+
+@mixin icon($filename, $insert: before, $extend: true) {
+	&:#{$insert} {
+		@if $extend {
+			@extend %icon;
+		} @else {
+			@include icon-styles;
+		}
+		content: icon-char($filename);
+	}
+}
+
+.icon-arrow {
+	@include icon(arrow);
+}
+.icon-home {
+	@include icon(home);
+}
+.icon-simply-logo {
+	@include icon(simply-logo);
+}

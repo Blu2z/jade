@@ -5,10 +5,14 @@ import browserSync from 'browser-sync';
 import del from 'del';
 import {stream as wiredep} from 'wiredep';
 import jade from "gulp-jade";
+import iconfont from "gulp-iconfont";
+import consolidate from "gulp-consolidate";
+import iconfontCss from "gulp-iconfont-css";
 
 
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
+const fontName = 'Simplyfont';
 
 
 // gulp.task('jade', ['styles'], () => {
@@ -23,6 +27,25 @@ const reload = browserSync.reload;
 //     // .pipe($.if('*.html',))
 //     .pipe(gulp.dest('dist'));
 // });
+
+
+gulp.task('iconfont', function(){
+  gulp.src(['app/images/font-svg/*.svg'])
+    .pipe(iconfontCss({
+      fontName: fontName,
+      path: 'app/styles/core/_icons.scss',
+      targetPath: '../styles/_icons.scss',
+      fontPath: '../../fonts/'
+    }))
+    .pipe(iconfont({
+      fontName: fontName,
+      appendUnicode: true, // recommended option 
+      formats: ['ttf', 'eot', 'woff', 'svg'], // default, 'woff2' and 'svg' are available 
+     }))
+    .pipe(gulp.dest('app/fonts/'));
+});
+
+
 
 gulp.task('jade', ['styles'], () => {
   gulp.src('app/template/*.jade')
@@ -111,7 +134,7 @@ gulp.task('extras', () => {
 
 gulp.task('clean', del.bind(null, ['.tmp', 'dist']));
 
-gulp.task('serve', ['jade', 'styles', 'fonts'], () => {
+gulp.task('serve', ['jade', 'styles', 'iconfont', 'fonts'], () => {
   browserSync({
     notify: false,
     port: 9000,
